@@ -24,7 +24,7 @@ import (
 	"github.com/rivo/tview"
 )
 
-const manual = `Move up/down = (k)/(j) or arrow keys. Press Enter/Tab to switch color and light.`
+const manual = `Move up/down = (k)/(j) or arrow keys. Enter or Tab to switch color and light.`
 
 var version = "v0.1.0"
 
