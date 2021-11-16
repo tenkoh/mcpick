@@ -1,6 +1,21 @@
+/*
+mcpick:
+Light weight Terminal User Interface (TUI) to pick material colors.
+
+copyright:
+tenkoh
+
+license:
+MIT
+
+GitHub:
+https://github.com/tenkoh/mcpick
+*/
+
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 
@@ -11,11 +26,7 @@ import (
 
 const manual = `Move up/down = (k)/(j) or arrow keys. Press Enter/Tab to switch color and light.`
 
-// prevent locale problem, set rune width before launching app.
-// with the problem, the first letter in each row would be lacked.
-func init() {
-	runewidth.DefaultCondition = &runewidth.Condition{EastAsianWidth: false}
-}
+var version = "v0.1.0"
 
 var (
 	app     *tview.Application
@@ -26,6 +37,12 @@ var (
 	footer  *tview.TextView
 	stdout  string
 )
+
+// prevent locale problem, set rune width before launching app.
+// with the problem, the first letter in each row would be lacked.
+func init() {
+	runewidth.DefaultCondition = &runewidth.Condition{EastAsianWidth: false}
+}
 
 func next(current, length int) int {
 	current++
@@ -106,6 +123,17 @@ func currentCode() string {
 }
 
 func main() {
+	// versioning
+	var showVersion bool
+	flag.BoolVar(&showVersion, "v", false, "show version")
+	flag.BoolVar(&showVersion, "version", false, "show version")
+	flag.Parse()
+	if showVersion {
+		fmt.Printf("mcpick: version = %s\n", version)
+		return
+	}
+
+	// main
 	app = tview.NewApplication()
 
 	colors := colorMap[colorMajors[0].name]
