@@ -2,7 +2,7 @@
 Light weight Terminal User Interface (TUI) to pick material colors.
 You do NOT need to take your hands off the keyboard to pick colors.
 
-![screenshot](screenshot.jpeg)
+![screenshot](https://tenkoh.github.io/static/mcpick_capture.gif)
 
 ## Getting started
 Here, I introduce two methods. If `go` is installed, the first method would be more convenient.
@@ -33,13 +33,14 @@ This app **JUST** outputs color code to the terminal. You can combinate this app
 The example below copies color code to the clipboard. The most convenient way is make alias in your `.bashrc` or `.zshrc`.
 
 ```shell
-mcpick | pbcopy
+alias mcp='mcpick | pbcopy'
 ```
 
 ### Example: Windows
 The example below copies color code to the clipboard. The most convenient way is make `.bat` file and add the path to `PATH`.
 
 ```shell
+# mcp.bat
 mcpick | clip
 ```
 
