@@ -5,7 +5,14 @@ You do NOT need to take your hands off the keyboard to pick colors.
 ![screenshot](screenshot.jpeg)
 
 ## Getting started
-1. Save the binary file `mcpick` in any directory.
+Here, I introduce two methods. If `go` is installed, the first method would be more convenient.
+
+### Method 1: With `go get`
+1. `go install github.com/tenkoh/mcpick`
+2. add `$GOPATH/bin` to `$PATH`
+
+### Method 2: Manual install
+1. Save the binary file `mcpick` in any directory. The binary files are listed on [release page](https://github.com/tenkoh/mcpick/releases).
 1. Add the path to PATH.
 
 ## Usage
@@ -35,3 +42,6 @@ The example below copies color code to the clipboard. The most convenient way is
 ```shell
 mcpick | clip
 ```
+
+## Contribute
+I'm really welcome your contribution.
