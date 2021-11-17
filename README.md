@@ -7,7 +7,7 @@ You do NOT need to take your hands off the keyboard to pick colors.
 ## Getting started
 Here, I introduce two methods. If `go` is installed, the first method would be more convenient.
 
-### Method 1: With `go get`
+### Method 1: With `go install`
 1. `go install github.com/tenkoh/mcpick`
 2. add `$GOPATH/bin` to `$PATH`
 
