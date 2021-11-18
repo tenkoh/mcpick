@@ -1,4 +1,6 @@
+#!/bin/bash
 VERSION=$(git describe --tags)
+echo $VERSION
 THIS_GOOS=$(go env GOOS)
 THIS_GOARCH=$(go env GOARCH)
 RELEASE_DIR="release"
@@ -16,7 +18,7 @@ do
             SUFFIX=".exe"
     fi
     DIST_BIN=$DIST"/mcpick"$SUFFIX
-    go build -o $DIST_BIN
+    go build -o $DIST_BIN -ldflags "-X main.version=$VERSION"
     cp LICENSE README.md $DIST
     mkdir -p $ARTIFACT_DIR 2>/dev/null
     if [ $GOOS = "linux" ]
