@@ -6,6 +6,10 @@ THIS_GOARCH=$(go env GOARCH)
 RELEASE_DIR="release"
 ARTIFACT_DIR="artifact"
 RELEASE_TARGET=("linux/arm" "linux/arm64" "linux/amd64" "windows/amd64" "darwin/amd64" "darwin/arm64")
+
+# remove old artifacts
+rm -rf $ARTIFACT_DIR
+
 for t in ${RELEASE_TARGET[@]}
 do
     DIST=$RELEASE_DIR"/"$t"/mcpick_"$VERSION
@@ -23,9 +27,9 @@ do
     mkdir -p $ARTIFACT_DIR 2>/dev/null
     if [ $GOOS = "linux" ]
         then
-            tar cfvz $ARTIFACT_DIR"/mcpick_"$GOOS"_"$GOARCH".tar.gz" $DIST_BIN
+            tar cfvz $ARTIFACT_DIR"/mcpick_"$GOOS"_"$GOARCH".tar.gz" $DIST
     else
-        zip -r $ARTIFACT_DIR"/mcpick_"$GOOS"_"$GOARCH".zip" $DIST_BIN
+        zip -r $ARTIFACT_DIR"/mcpick_"$GOOS"_"$GOARCH".zip" $DIST
     fi
 done
 GOOS=THIS_GOOS
